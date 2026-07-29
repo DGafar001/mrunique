@@ -1,172 +1,133 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uqbyte | High-Performance Software Development & SaaS Architecture</title>
-    <meta name="description" content="uqbyte builds scalable web applications, premium SaaS products, and secure APIs designed to drive traffic and business growth.">
     
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Optimized SEO Title (Max 60 characters) -->
+    <title>Uqbyte Tech Hub | Premium Software & Web Development Solutions</title>
     
-    <!-- Custom Theme Variables -->
-    <style>
-        body { 
-            background-color: #0f172a; 
-            color: #cbd5e1; 
-            font-family: system-ui, -apple-system, sans-serif;
-        }
-        .text-white { color: #ffffff !important; }
-        .text-gradient {
-            background: linear-gradient(to right, #34d399, #22d3ee);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .bg-card-dark { 
-            background-color: #1e293b66; 
-            border: 1px solid #334155; 
-            transition: border-color 0.3s ease;
-        }
-        .bg-card-dark:hover {
-            border-color: #475569;
-        }
-        .btn-emerald { 
-            background-color: #10b981; 
-            color: #0f172a; 
-            font-weight: 700;
-            border: none;
-        }
-        .btn-emerald:hover { 
-            background-color: #059669; 
-            color: #0f172a; 
-            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
-        }
-        .form-control-dark {
-            background-color: #020617;
-            border: 1px solid #334155;
-            color: #ffffff;
-        }
-        .form-control-dark:focus {
-            background-color: #020617;
-            border-color: #10b981;
-            color: #ffffff;
-            box-shadow: none;
-        }
-        .logo-box {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(to bottom right, #34d399, #22d3ee);
-            border-radius: 8px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            color: #0f172a;
-            font-weight: bold;
-        }
-    </style>
+    <!-- Meta Description for Search Result Snippet (Max 160 characters) -->
+    <meta name="description" content="Uqbyte Tech Hub crafts high-performance software architectures and modern web applications. Sign up to get notified when our next-gen digital solutions launch.">
+    
+    <!-- Search Engine Robots Control -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags for Social Media (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Uqbyte Tech Hub | Coming Soon">
+    <meta property="og:description" content="Next-gen web applications and high-performance software architectures built to transform your business.">
+    <meta property="og:url" content="https://uqbyte.com"> <!-- Replace with your actual domain -->
+    <meta property="og:image" content="https://uqbyte.com/assets/og-image.jpg"> <!-- Link to a branding image -->
+
+    <!-- Twitter Card Data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Uqbyte Tech Hub | Next-Gen Software Solutions">
+    <meta name="twitter:description" content="Transforming your digital vision into reality. Sign up for launch updates.">
+
+    <!-- Custom Pure CSS File Link -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon (Essential for search result branding) -->
+    <link rel="icon" type="image/png" href="image/brandlogo.png">
 </head>
-<body>
 
-    <!-- Sticky Navigation -->
-    <nav class="navbar navbar-expand navbar-dark sticky-top bg-dark bg-opacity-75 border-b border-secondary" style="backdrop-filter: blur(10px); border-bottom: 1px solid #334155;">
-        <div class="container px-4 h-16 d-flex justify-content-between align-items-center" style="height: 64px;">
-            <a class="navbar-brand d-flex align-items-center gap-2 m-0" href="#">
-                <div class="logo-box">u</div>
-                <span class="fs-4 fw-black text-white tracking-tight">uq<span style="color: #10b981;">byte</span></span>
-            </a>
-            <a href="#contact" class="btn btn-outline-secondary text-white btn-sm px-3 py-2" style="border-color: #334155;">
-                Contact Us
-            </a>
+<body class="body-container">
+
+    <!-- Background Decorative Elements -->
+    <div class="blur-glow blur-top"></div>
+    <div class="blur-glow blur-bottom"></div>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="logo-wrapper">
+            <!-- Logo Icon -->
+            <div class="logo-icon"><img src="image/brandlogo.png" alt="uqbyte logo"></div>
+            <span class="logo-text">
+                Uqbyte<span class="logo-dot">.</span>
+            </span>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="container px-4 py-5 my-md-5">
-        <div class="row align-items-center g-5 py-5">
-            <div class="col-md-7">
-                <span class="text-uppercase font-monospace small text-gradient tracking-wider fw-bold">Enterprise-Grade Engineering</span>
-                <h1 class="display-4 fw-extrabold text-white mt-3 lh-sm">
-                    uqbyte builds software that scales with your <span class="text-gradient">traffic demand.</span>
-                </h1>
-                <p class="lead text-secondary mt-4 max-w-xl">
-                    We design premium full-stack architectures, high-converting platforms, and reliable systems optimized to turn incoming digital traffic into real revenue.
-                </p>
-                <div class="mt-5 d-grid d-sm-flex gap-3">
-                    <a href="#contact" class="btn btn-emerald btn-lg px-4 py-3 shadow-sm">Get a Free Tech Consultation</a>
-                    <a href="#services" class="btn btn-outline-secondary text-white btn-lg px-4 py-3" style="border-color: #334155;">Our Capabilities</a>
-                </div>
-            </div>
-            <div class="col-md-5 text-center text-md-end position-relative">
-                <img src="https://unsplash.com" alt="uqbyte software engineering workspace" class="img-fluid rounded-4 shadow-lg w-100" style="max-height: 400px; object-fit: cover;">
-            </div>
+        <div class="status-badge" id="statusbadge">
+            Coming Soon
         </div>
     </header>
 
-    <div class="container"><hr style="border-color: #334155; opacity: 1;"></div>
+    <!-- Main Content Area -->
+    <main class="main-content">
+        
+        <!-- Glassmorphism Card -->
+        <div class="glass-card glow-effect">
+            
+    <!-- Founder Profile Block -->
+    <div class="profile-container">
+    <div class="avatar-ring">
+       <div class="progressive-image-wrapper">
+        <!-- 1. The ultra-small, low-res image (e.g., 20px wide, blurred via CSS) -->
+        <img src="image/brandlogo.png" alt="" class="founder-avatar placeholder-blur">
+        <!-- 2. The high-resolution heavy image (loaded dynamically via JS) -->
+        <img data-src="image/founderavatar.png" alt="Daud A.O - Founder of Uqbyte Tech Hub" class="founder-avatar real-image opacity-0">
+    </div>
+</div>
 
-    <!-- Services / Value Section -->
-    <section id="services" class="container px-4 py-5">
-        <div class="text-center max-w-3xl mx-auto my-5">
-            <h2 class="display-6 fw-bold text-white">Our Core Framework for Growth</h2>
-            <p class="text-secondary mt-3">At uqbyte, we balance optimized backend logic with fast-loading user pathways to maximize conversion.</p>
-        </div>
-        <div class="row g-4 mt-2">
-            <div class="col-md-4">
-                <div class="p-4 rounded-4 bg-card-dark h-100">
-                    <div class="fs-2 mb-4 p-2 d-inline-block rounded" style="background-color: rgba(16,185,129,0.1); color: #10b981; width: 50px; height: 50px; text-align: center; line-height: 1;">🚀</div>
-                    <h3 class="h4 text-white">Custom SaaS Production</h3>
-                    <p class="text-secondary small mt-3 lh-base">Turn your layout into a production-ready application. Clean, modular codebases using standard modern frameworks.</p>
+                <div class="founder-info">
+                    <h2 class="founder-name">Daud A.O</h2>
+                    <span class="founder-title">Founder</span>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="p-4 rounded-4 bg-card-dark h-100">
-                    <div class="fs-2 mb-4 p-2 d-inline-block rounded" style="background-color: rgba(34,211,238,0.1); color: #22d3ee; width: 50px; height: 50px; text-align: center; line-height: 1;">🔒</div>
-                    <h3 class="h4 text-white">Secure Cloud Architecture</h3>
-                    <p class="text-secondary small mt-3 lh-base">Robust data protection configurations. We design enterprise APIs capable of handling dynamic traffic loads seamlessly.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="p-4 rounded-4 bg-card-dark h-100">
-                    <div class="fs-2 mb-4 p-2 d-inline-block rounded" style="background-color: rgba(99,102,241,0.1); color: #6366f1; width: 50px; height: 50px; text-align: center; line-height: 1;">📈</div>
-                    <h3 class="h4 text-white">Performance Tuning</h3>
-                    <p class="text-secondary small mt-3 lh-base">Slow speeds destroy web traffic rankings. We optimize core file metrics to maintain instant page loading speeds.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <div class="container"><hr style="border-color: #334155; opacity: 1;"></div>
-
-    <!-- Contact & Lead Capture Section -->
-    <section id="contact" class="container max-w-md py-5 my-5 px-4" style="max-width: 700px;">
-        <div class="p-5 rounded-4 text-center shadow-lg style-container" style="background: linear-gradient(to bottom, #1e293b, #0f172a); border: 1px solid #334155;">
-            <h2 class="display-6 fw-bold text-white">Start Your Project Journey With uqbyte</h2>
-            <p class="text-secondary mt-3 mb-5 mx-auto" style="max-width: 500px;">Submit your product requirements below. Our engineering team will review and outline a functional roadmap for your platform.</p>
-            <form class="text-start mx-auto" style="max-width: 450px;">
-                <div class="mb-3">
-                    <input type="text" placeholder="Contact Name" required class="form-control form-control-dark py-3 px-4 rounded-3">
-                </div>
-                <div class="mb-3">
-                    <input type="email" placeholder="Business Email Address" required class="form-control form-control-dark py-3 px-4 rounded-3">
-                </div>
-                <div class="mb-4">
-                    <textarea placeholder="Describe your product architecture or engineering bottlenecks..." rows="4" class="form-control form-control-dark py-3 px-4 rounded-3"></textarea>
-                </div>
-                <button type="submit" class="btn btn-emerald w-100 py-3 rounded-3 text-uppercase tracking-wider font-weight-bold">
-                    Submit Requirements
+            
+            <!-- Tagline Badge -->
+            <span class="tagline-badge">
+                Next-Gen Web & Software Solutions
+            </span>
+            
+            <!-- Main Heading -->
+            <h1 class="hero-heading">
+                Crafting the Digital <br class="desktop-only"/>
+                <span class="gradient-text">Future of Business</span>
+            </h1>
+            
+            <!-- Subheading Description -->
+            <p class="hero-subheading">
+                Uqbyte Tech Hub is building premium, high-performance software architectures and modern web applications. We launch soon to transform your digital vision into reality.
+            </p>
+            
+            <!-- Newsletter Form -->
+            <form id="notifyForm" class="newsletter-form">
+                <input 
+                    type="email" 
+                    id="emailInput"
+                    required 
+                    placeholder="Enter your email address" 
+                    class="email-input"
+                >
+                <button type="submit" class="submit-button">
+                    Notify Me
                 </button>
             </form>
+            
         </div>
-    </section>
+           <!--modal for coming soon-->
+             <div class="mymodal">
+                 <h4 class modaltext2>Stay tuned</h4>
+                 <h3 class="modaltext1">Coming Soon !!!</h3>
+                 <div class="modalbtn"><button id="modalbtn">close</button></div>
+             </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-dark py-4 border-top text-center text-secondary small" style="background-color: #020617 !important; border-color: #334155 !important;">
-        <div class="container">
-            <p class="m-0">&copy; 2026 uqbyte. All rights reserved.</p>
+    <footer class="main-footer">
+        <div class="copyright-text">
+            &copy; 2026 Uqbyte Tech Hub. All rights reserved.
+        </div>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Twitter</a>
+            <a href="#" class="footer-link">LinkedIn</a>
+            <a href="#" class="footer-link">Contact</a>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://jsdelivr.net"></script>
+    <!-- Custom JS Script File Link -->
+    <script src="script.js"></script>
 </body>
 </html>
