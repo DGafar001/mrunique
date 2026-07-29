@@ -1,0 +1,516 @@
+/* ==========================================================================
+   1. CORE VARIABLES & BASE RESET
+   ========================================================================== */
+:root {
+    --bg-dark: #070a13;
+    --text-primary: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   2. BACKGROUND AMBIENT GLOWS & KEYFRAMES
+   ========================================================================== */
+.blur-glow {
+    position: absolute;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    animation: floatGlow 12s ease-in-out infinite alternate;
+}
+
+.blur-top {
+    top: -20%;
+    left: -10%;
+    background: rgba(99, 102, 241, 0.15);
+}
+
+.blur-bottom {
+    bottom: -20%;
+    right: -10%;
+    background: rgba(168, 85, 247, 0.15);
+    animation-delay: -6s;
+}
+
+@keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(4% , 6%) scale(1.1); }
+}
+
+/* ==========================================================================
+   3. HEADER SECTION
+   ========================================================================== */
+.main-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+}
+.logo-icon img{
+    width:100%;
+    height:100%;
+
+}
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+}
+
+.logo-dot {
+    color: #6366f1;
+}
+
+/* Optimized Badge with Dynamic Text and Border Color Shifts */
+.status-badge {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    
+    /* Base border color using your brand indigo */
+    border: 1px solid rgba(99, 102, 241, 0.4); 
+    
+    /* Layered base shadows: Text shadow + Container box shadow */
+    text-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 15px -3px rgba(99, 102, 241, 0.3), 
+                inset 0 0 10px rgba(99, 102, 241, 0.1);
+
+    /* Executes color shifting and pulsing simultaneously over 6 seconds */
+    animation: dynamicGlow 6s linear infinite;
+}
+
+/* Unified Keyframes for Color Shift, Text Glow, and Box Shadow Glow */
+@keyframes dynamicGlow {
+    0% {
+        filter: hue-rotate(0deg);
+        text-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 12px -3px rgba(99, 102, 241, 0.25), inset 0 0 8px rgba(99, 102, 241, 0.1);
+        color:#a855f7;
+    }
+    50% {
+        /* Peak of the pulse animation halfway through the color loop */
+        text-shadow: 0 0 14px rgba(99, 102, 241, 0.9), 0 0 25px rgba(168, 85, 247, 0.6);
+        box-shadow: 0 0 25px 2px rgba(99, 102, 241, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.2);
+        color:aqua;
+    }
+    100% {
+        /* Full color cycle rotation back to base indigo/purple */
+        filter: hue-rotate(360deg);
+        text-shadow: 0 0 6px rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 12px -3px rgba(99, 102, 241, 0.25), inset 0 0 8px rgba(99, 102, 241, 0.1);
+        color:bisque
+    }
+}
+
+
+/* ==========================================================================
+   4. MAIN INTERACTIVE GLASS CARD
+   ========================================================================== */
+.main-content {
+    width: 100%;
+    max-width: 900px;
+    margin: auto auto;
+    padding: 3rem 1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    padding: 2.5rem 1.5rem;
+    width: 100%;
+    
+    /* Animation Entrance Parameters */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glow-effect {
+    box-shadow: 0 0 50px -10px rgba(99, 102, 241, 0.15);
+}
+
+@keyframes cardEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Elements */
+.tagline-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #818cf8;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.375rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-heading {
+    font-size: 2.25rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.desktop-only {
+    display: none;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #818cf8 0%, #c084fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subheading {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.6;
+}
+
+/* Stack images on top of each other safely */
+.progressive-image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+/* Ensure placeholder looks like a smooth blurred background element */
+.placeholder-blur {
+    filter: blur(8px) brightness(0.95) contrast(1.05);
+    transform: scale(1.1); /* Hides artifact edges caused by blurring */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.4s ease-out;
+}
+
+/* Base state for the high-res image before it is loaded */
+.real-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Class injected by JS once downloading concludes */
+.real-image.loaded {
+    opacity: 1;
+}
+
+
+/* ==========================================================================
+   5. NEWSLETTER INTEGRATION FORM
+   ========================================================================== */
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.email-input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--glass-border);
+    color: #ffffff;
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.email-input::placeholder {
+    color: #475569;
+}
+
+.email-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.75rem;
+    background: var(--primary-gradient);
+    border: none;
+    color: #ffffff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+}
+
+.submit-button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+}
+
+/* ==========================================================================
+   6. FOOTER STYLING
+   ========================================================================== */
+.main-footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-link {
+    color: #475569;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-link:hover {
+    color: #818cf8;
+}
+/* /* ==========================================================================
+   FOUNDER PROFILE SECTION STYLING (UPDATED FOR NAME HIERARCHY)
+   ========================================================================== */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    gap: 0.5rem;
+}
+
+.avatar-ring {
+    position: relative;
+    padding: 3px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4));
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    width:200px;
+    height: 200px;
+}
+
+.founder-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    background-color: var(--bg-dark);
+    filter: brightness(0.95) contrast(1.05);
+}
+
+.founder-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.founder-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.founder-title {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Hover Interaction over Profile Block */
+.avatar-ring:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #6366f1, #a855f7);
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.4);
+}
+.mymodal{
+    border-radius:25px;
+    box-shadow:20px 5px 5px 10px #c084fc;
+    background:#a855f7;
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:70%;
+    height:300px;
+    display:none;
+
+}
+.mymodal h3,h4{
+    color:#ffffff;
+    font-size:30px;
+    text-align: center;
+    animation:myanime .5s ease-in-out;
+}
+.modalbtn{
+    margin:20px auto;
+    text-align: center;
+}
+.modalbtn button{
+    padding:5px 15px;
+    border-radius:5px;
+    border:none;
+    background: #475569;
+    color:#ffffff;
+    cursor: pointer;;
+    font-size:25px;
+    animation: myanime .3s ease infinite; 
+}
+@keyframes myanime {
+    from{
+          transform:scale(0.8);
+     box-shadow: 5px 5px 10px 0px #f8fafc;
+
+    }
+
+    to {
+     transform:scale(1);
+     box-shadow: 5px px 5px 0px #f8fafc;
+    }
+}
+
+
+
+/* ==========================================================================
+   7. MEDIA QUERIES (RESPONSIVENESS & ADVANCED DISPLAYS)
+   ========================================================================== */
+@media (min-width: 640px) {
+    .newsletter-form {
+        flex-direction: row;
+    }
+    
+    .submit-button {
+        width: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .main-content {
+        padding: 4rem 1.5rem;
+    }
+
+    .glass-card {
+        padding: 3.5rem;
+    }
+
+    .hero-heading {
+        font-size: 3.5rem;
+    }
+
+    .desktop-only {
+        display: block;
+    }
+
+    .hero-subheading {
+        font-size: 1.125rem;
+    }
+
+    .main-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+}
